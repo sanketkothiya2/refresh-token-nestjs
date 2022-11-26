@@ -8,7 +8,7 @@ import { AuthDto } from './dto/auth.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   @Post('signup')
   signup(@Body() createUserDto: CreateUserDto) {
@@ -26,11 +26,23 @@ export class AuthController {
     this.authService.logout(req.user['sub']);
   }
 
-  @UseGuards(RefreshTokenGuard)
+  // @UseGuards(RefreshTokenGuard)
   @Get('refresh')
-  refreshTokens(@Req() req: Request) {
-    const userId = req.user['sub'];
-    const refreshToken = req.user['refreshToken'];
-    return this.authService.refreshTokens(userId, refreshToken);
+  // refreshTokens(@Req() req: Request) {
+  refreshTokens() {
+    console.log('refresh tokens');
+    return {message:'hello'}
+    // const userId = req.user['sub'];
+    // if (userId) {
+    //   return userId
+
+    // } else {
+    //   return { message: "null user" }
+
+    // }
+    // console.log("🚀 ~ file: auth.controller.ts ~ line 33 ~ AuthController ~ refreshTokens ~ userId", userId)
+    // const refreshToken = req.user['refreshToken'];
+    // console.log("🚀 ~ file: auth.controller.ts ~ line 35 ~ AuthController ~ refreshTokens ~ refreshToken", refreshToken)
+    // return this.authService.refreshTokens(userId, refreshToken);
   }
 }
