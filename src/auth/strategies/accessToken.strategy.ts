@@ -16,7 +16,7 @@ export class AccessTokenStrategy extends PassportStrategy(Strategy, 'jwt') {
       secretOrKey: 'topsecret',
     });
   }
-
+  
   validate(payload: JwtPayload) {
     return payload;
   }
