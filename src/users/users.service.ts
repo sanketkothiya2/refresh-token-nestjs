@@ -4,6 +4,8 @@ import { Model } from 'mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserDocument } from './schemas/user.schema';
+const path = require('path')
+const fs = require('fs')
 
 @Injectable()
 export class UsersService {
@@ -39,3 +41,5 @@ export class UsersService {
     return this.userModel.findByIdAndDelete(id).exec();
   }
 }
+
+

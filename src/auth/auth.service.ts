@@ -92,7 +92,8 @@ export class AuthService {
           username,
         },
         {
-          secret: this.configService.get<string>('JWT_ACCESS_SECRET'),
+          // secret: this.configService.get<string>('JWT_ACCESS_SECRET'),
+          secret: 'topsecret',
           expiresIn: '15m',
         },
       ),
@@ -102,7 +103,8 @@ export class AuthService {
           username,
         },
         {
-          secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
+          // secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
+          secret: 'toprefsecret',
           expiresIn: '7d',
         },
       ),
